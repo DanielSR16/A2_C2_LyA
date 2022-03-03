@@ -13,14 +13,15 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
 from tabla import *
 import string
-
+from sintactico import metodos_sintantico
 
 valor = ''
 listaPrimaria = []
 mayusculas = list(string.ascii_uppercase)
 minusculas = list(string.ascii_lowercase)
 letra = minusculas + mayusculas
-
+print(string.ascii_uppercase)
+print(string.ascii_lowercase)
 encontrados = {
     'guion' : [],
     'dosPuntos' : [],
@@ -103,15 +104,6 @@ class index(QMainWindow):
             
         
       
-      
-       
-
-    
-
-
-
-
-
 def validarTokens():
     errorSimbolo = False
     for numLinea in range(0,len(listaPrimaria)):
@@ -202,14 +194,18 @@ def validarTokens():
             auxListaEncontrado.clear()
 
         
-            listaAux_valores = []
-            listaAux_valores.extend(encontradosvalores_aux)
+            # listaAux_valores = []
+            # listaAux_valores.extend(encontradosvalores_aux)
 
-            encontradosValores.append(listaAux_valores)
-            listaAux_valores = []
-            print(encontradosValores)
+            encontradosValores.extend(encontradosvalores_aux)
+
+
+            # print(encontradosValores)
+
+            
+
           
-            listaAux_valores.clear()
+            # listaAux_valores.clear()
             encontradosvalores_aux.clear()
 
             if len(encontrados['error']) > 0:
@@ -218,6 +214,9 @@ def validarTokens():
     # print('ListaEnocontrados')
     # print(listaEncontrados)
     listasToString()
+    print(encontradosValores)
+    metodos_sintantico(encontradosValores)
+
     # print(encontradosString)
     for borrarEncontrado in range(0,len(listaEncontrados)):
         listaEncontrados.pop()      
@@ -281,8 +280,6 @@ def verificarTokens(palabra):
 def verificarTokensCampo(palabra):
     campoAux = ''
     for letra in palabra:
-
-           
             if letra != '-' and letra != ',' and letra != '(' :
                 # print(letra)
                 campoAux = campoAux + letra
