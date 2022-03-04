@@ -41,9 +41,9 @@ tokens = {
     'parentesis' : ['(',')'],
 
 'palabraReservada':['BaseDeDatos','NombreTabla','ListaCampo','LlavePrimaria','noVacio','incrementarse'],
-    'valor' : ['entero','enteroSuperPequeño','enteroPequeño'
-                         'fecha','fechaHora','hora','textoPequeño','texto','textoMediano','textoLargo','textoLargo','dobleFlotante'
-                         'cadenaDefinida','cadena','enteroMediano','enteroGande','enteroDecimal','decimalDoble'
+    'valor' : ['entero','enteroSuperPequeño','enteroPequeño',
+                         'fecha','fechaHora','hora','textoPequeño','texto','textoMediano','textoLargo','textoLargo','dobleFlotante',
+                         'cadenaDefinida','cadena','enteroMediano','enteroGande','enteroDecimal','decimalDoble',
                          'decimal','año'],
     
     'letra': letra,

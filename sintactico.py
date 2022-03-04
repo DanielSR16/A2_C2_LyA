@@ -35,35 +35,49 @@ with open('datos.csv', newline='') as File:
     ListaTotalDatos[12][29] = 'año'
     ListaTotalDatos[12][30] =  'textoPequeño'
     ListaTotalDatos[7][6] = 'a...z|A...Z'
-
+    print(ListaTotalDatos[13][7])
+    lista_no_terminales = []
+    for i in ListaTotalDatos:
+        lista_no_terminales.append(i[0])
+    print(lista_no_terminales)
     # print(ListaTotalDatos[0])
+
     # for i in ListaTotalDatos[] 
 
 def metodos_sintantico(valoresBuscar):
     apuntador = 0
     entrada = valoresBuscar
+    entrada.append('$')
     pila = ['ENTRADAS','$']
     primeroPila = pila[0]
     while(primeroPila != '$'):
 
         primeroPila = pila[0]
+        # if apuntador < len(entrada):
         simboloApuntado = entrada[apuntador]
+        # if(apuntador == len(entrada)):
+        #     pila.pop(0)
+
         encuentra_terminales = primeroPila in ListaTotalDatos[0]
-        # print('PRIMERO EN LA PILA: ',primeroPila)
-        # print('APUNTADOR: ',simboloApuntado)
+
+        
+        print('__________________________________________')
+        print('PRIMERO EN LA PILA: ',primeroPila)
+        print('APUNTADOR: ',simboloApuntado)
+        print(pila)
 
         if primeroPila == 'vacio':
                 print('entre a vacio')
                 pila.pop(0)
-                # apuntador = apuntador + 1
-                # print('pila depues de vacio = ',pila)
+         
         elif encuentra_terminales == True or primeroPila == '$':
-      
+            print('entre a terminales xd')
             if primeroPila == 'a...z|A...Z':
                 in_listaLetra =  simboloApuntado in listLetra
                 if in_listaLetra == True:
                     pila.pop(0)
                     apuntador = apuntador + 1
+
             elif primeroPila == '0...9':
                 in_listaNumeros = simboloApuntado in listNumeros
                 if in_listaNumeros == True:
@@ -73,26 +87,35 @@ def metodos_sintantico(valoresBuscar):
             elif primeroPila == simboloApuntado:
                 pila.pop(0)
                 apuntador = apuntador + 1
+                
             else:
                 print('ERROR')
                 break
         elif encuentra_terminales == False:
-
-            fila = buscarFila(primeroPila)
-            columna = buscarColumna(simboloApuntado)
-            # print('FILA: ',fila)
-            # print('COLUMNA: ',columna)
-            datoAddPila = ListaTotalDatos[fila][columna]
-            
-            # print(datoAddPila)
-            listaAddPila = datoAddPila.split()
-            # print(listaAddPila)
-            pila.pop(0)
-            listaAddPila.extend(pila)
-            pila = listaAddPila
-            print(pila)
-            # regla = 
-
+            print('entre a no terminales')
+            exsiste_no_Terminales = primeroPila in  lista_no_terminales
+          
+            if exsiste_no_Terminales == True:
+                print(primeroPila)
+                print(simboloApuntado)
+                fila = buscarFila(primeroPila)
+                columna = buscarColumna(simboloApuntado)
+                print('FILA: ',fila)
+                print('COLUMNA: ',columna)
+                datoAddPila = ListaTotalDatos[fila][columna]
+                
+                # print(datoAddPila)
+                listaAddPila = datoAddPila.split()
+                # print(listaAddPila)
+                pila.pop(0)
+                listaAddPila.extend(pila)
+                pila = listaAddPila
+                
+            else:
+                print('ERROR')
+                break
+                # regla = 
+    print('LOS TKM AMIKOS ')
 
 
         
@@ -109,23 +132,30 @@ def buscarColumna(simboloApuntado:str):
     # print('soy el simbolo',simboloApuntado)
     letra = False
     if(len(simboloApuntado) == 1 and simboloApuntado.isalpha() == True):
-
+        print('soy letra xd')
         letra = True
     numero = simboloApuntado.isdigit()
+    print('numero: ',numero)
     if letra == True:
+  
         simboloBuscar = 'a...z|A...Z'
     elif numero == True:
-        simboloBuscar == '0..9'
+        simboloBuscar = '0...9'
+        print('soy numero xd')
     else:
          simboloBuscar = simboloApuntado
 
     for x in range(1,len(ListaTotalDatos[0])):
         # print(x)
         # print(ListaTotalDatos[0][x] )
+        # print(ListaTotalDatos[0][x])
+        # print('siembolo a buscar xd: ',simboloBuscar)
         if ListaTotalDatos[0][x] == simboloBuscar:
+            
             # print('simbolo en columa: ',ListaTotalDatos[0][x])
             # print('simbolo a buscar: ',simboloBuscar)
             posicionColumna = x
+            
     return posicionColumna
         
          
