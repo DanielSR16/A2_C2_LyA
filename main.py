@@ -20,8 +20,8 @@ listaPrimaria = []
 mayusculas = list(string.ascii_uppercase)
 minusculas = list(string.ascii_lowercase)
 letra = minusculas + mayusculas
-print(string.ascii_uppercase)
-print(string.ascii_lowercase)
+
+
 encontrados = {
     'guion' : [],
     'dosPuntos' : [],
@@ -84,9 +84,11 @@ class index(QMainWindow):
                 listaPrimaria.append(newNombre)
                 lineaNombreAux = ''
 
-        validarTokens()
+        
+        self.resultado_sintactico.setText('Resultado Metodo Sintactico: '+validarTokens())
         self.cargarData()
         self.mostrarError()
+        
         
     def mostrarError(self):
         self.error.setText('')
@@ -117,7 +119,7 @@ def validarTokens():
                     auxString = auxString + valores
             
                     if len(listaPrimaria[numLinea]) == len(auxString):
-                        print('soy normal xd')
+                      
                         palabra = listaPrimaria[numLinea]
                         verificarTokens(palabra)
                         listaPrimaria[numLinea] = []
@@ -156,7 +158,7 @@ def validarTokens():
                         listaPrimaria[numLinea] = dataNT
                         verificarTokens(listaPrimaria[numLinea])
                         listaPrimaria[numLinea] = []
-                        print('soy data tabala',dataNT)
+                      
 
                     elif(palabra == 'ListaCampo'):
                         auxListaEncontrado.append('PalabraReservada')
@@ -184,7 +186,7 @@ def validarTokens():
                  
 
                     else:
-                        print('SoyNormal')
+                 
                         palabra = listaPrimaria[numLinea]
                         verificarTokens(palabra)
                         listaPrimaria[numLinea] = []
@@ -215,12 +217,15 @@ def validarTokens():
     # print(listaEncontrados)
     listasToString()
     print(encontradosValores)
-    metodos_sintantico(encontradosValores)
+    #M
+    resultadoSintactico =  metodos_sintantico(encontradosValores)
+    encontradosValores.clear()
 
     # print(encontradosString)
     for borrarEncontrado in range(0,len(listaEncontrados)):
         listaEncontrados.pop()      
-        encontradosValores.pop()
+
+    return resultadoSintactico
 
 
         
@@ -319,6 +324,7 @@ def verificarTokensCampo(palabra):
                 existe_in_list_reservadas1 = campoAux in tokens['valor']
                
                 if existe_in_list_reservadas1 == True:
+         
                     auxListaEncontrado.append('valor')
                     auxListaEncontrado.append('parentesis')
 
@@ -327,6 +333,7 @@ def verificarTokensCampo(palabra):
                     
 
                 else:
+                   
                     verificarTokens(campoAux)
                     auxListaEncontrado.append('parentesis')
 
@@ -338,7 +345,7 @@ def verificarTokensCampo(palabra):
                 print(campoAux)
                 existe_in_list_reservadas2 = campoAux in tokens['palabraReservada']
                 existe_in_list_valores2 = campoAux in tokens['valor']
-                # print(existe_in_list_reservadas2)
+              
           
                 if existe_in_list_reservadas2 == True:
                     auxListaEncontrado.append('palabraReservada')
@@ -358,23 +365,7 @@ def verificarTokensCampo(palabra):
                     encontradosvalores_aux.append(',')
 
                 campoAux = ''    
-            elif letra == ')':
-                    existe_in_list_reservadas1 = campoAux in tokens['valor']
-                
-                    if existe_in_list_reservadas1 == True:
-                        auxListaEncontrado.append('valor')
-                        auxListaEncontrado.append('parentesis')
 
-                        encontradosvalores_aux.append(campoAux)
-                        encontradosvalores_aux.append(')')
-                        
-
-                    else:
-                        verificarTokens(campoAux)
-                        auxListaEncontrado.append('parentesis')
-
-                      
-                    campoAux = ''
         
 
 
@@ -391,16 +382,6 @@ def listasToString():
         auxEncontradosString = ''
 
     
-    # encontrados_valores_String.clear()
-    auxEncontrados_valores_String = ''
-    print
-    # for encontrado_valor in encontradosValores:
-    #     for datos_valor in encontrado_valor:
-    #         auxEncontrados_valores_String = auxEncontrados_valores_String + datos_valor + ' '
-    #     encontrados_valores_String.append(auxEncontrados_valores_String)
-    #     print('a')
-    #     print(encontrados_valores_String)
-    #     auxEncontrados_valores_String = ''
 
 
 

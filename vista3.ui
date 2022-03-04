@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1905</width>
-    <height>725</height>
+    <height>822</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -110,9 +110,27 @@
    <widget class="QLabel" name="error">
     <property name="geometry">
      <rect>
-      <x>850</x>
+      <x>810</x>
       <y>600</y>
       <width>331</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="resultado_sintactico">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>680</y>
+      <width>551</width>
       <height>41</height>
      </rect>
     </property>
