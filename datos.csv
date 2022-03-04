@@ -1,4 +1,4 @@
--1,$,BaseDeDatos,NombreTabla,ListaCampo,LlavePrimaria,a…z|A…Z,0...9,",",-,(,),:,incrementarse ,noVacio,entero,cadena,dobleFlotante,cadenaDefinida,enteroSuperPequeño,enteroPequeño,enteroMediano,bigInt,enteroDecimal,decimalDoble,decimal,fecha,fechaHora,hora,año,textoPequeño,texto,textoMediano,textoLargo
+-1,$,BaseDeDatos,NombreTabla,ListaCampo,LlavePrimaria,a…z|A…Z,0...9,",",-,(,),:,incrementarse,noVacio,entero,cadena,dobleFlotante,cadenaDefinida,enteroSuperPequeño,enteroPequeño,enteroMediano,bigInt,enteroDecimal,decimalDoble,decimal,fecha,fechaHora,hora,año,textoPequeño,texto,textoMediano,textoLargo
 ENTRADAS,-1,BD NT LC PK,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
 BD,-1,BaseDeDatos DOS_PUNTOS PALABRA ,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
 NT,-1,-1,NombreTabla DOS_PUNTOS PALABRA,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1

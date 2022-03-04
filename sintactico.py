@@ -36,7 +36,7 @@ with open('datos.csv', newline='') as File:
     ListaTotalDatos[12][30] =  'textoPequeño'
     ListaTotalDatos[7][6] = 'a...z|A...Z'
 
-    print(ListaTotalDatos[0][7])
+    # print(ListaTotalDatos[0])
     # for i in ListaTotalDatos[] 
 
 def metodos_sintantico(valoresBuscar):
@@ -49,15 +49,16 @@ def metodos_sintantico(valoresBuscar):
         primeroPila = pila[0]
         simboloApuntado = entrada[apuntador]
         encuentra_terminales = primeroPila in ListaTotalDatos[0]
-        print('PRIMERO EN LA PILA: ',primeroPila)
-        print('APUNTADOR: ',simboloApuntado)
+        # print('PRIMERO EN LA PILA: ',primeroPila)
+        # print('APUNTADOR: ',simboloApuntado)
+
         if primeroPila == 'vacio':
                 print('entre a vacio')
                 pila.pop(0)
                 # apuntador = apuntador + 1
-                print('pila depues de vacio = ',pila)
+                # print('pila depues de vacio = ',pila)
         elif encuentra_terminales == True or primeroPila == '$':
-
+      
             if primeroPila == 'a...z|A...Z':
                 in_listaLetra =  simboloApuntado in listLetra
                 if in_listaLetra == True:
@@ -76,10 +77,11 @@ def metodos_sintantico(valoresBuscar):
                 print('ERROR')
                 break
         elif encuentra_terminales == False:
+
             fila = buscarFila(primeroPila)
             columna = buscarColumna(simboloApuntado)
-            print('FILA: ',fila)
-            print('COLUMNA: ',columna)
+            # print('FILA: ',fila)
+            # print('COLUMNA: ',columna)
             datoAddPila = ListaTotalDatos[fila][columna]
             
             # print(datoAddPila)
@@ -96,7 +98,7 @@ def metodos_sintantico(valoresBuscar):
         
 def buscarFila(valor_pila):
     # posicionFila = 0
-    for i in range(1,len(ListaTotalDatos)-1):
+    for i in range(1,len(ListaTotalDatos)):
         # print(i)
         if ListaTotalDatos[i][0] == valor_pila:
             posicionFila = i
@@ -117,7 +119,7 @@ def buscarColumna(simboloApuntado:str):
     else:
          simboloBuscar = simboloApuntado
 
-    for x in range(1,len(ListaTotalDatos[0])-1):
+    for x in range(1,len(ListaTotalDatos[0])):
         # print(x)
         # print(ListaTotalDatos[0][x] )
         if ListaTotalDatos[0][x] == simboloBuscar:
@@ -127,20 +129,5 @@ def buscarColumna(simboloApuntado:str):
     return posicionColumna
         
          
-
-
-# def string_to_list(string):
-
-#     listAux = []
-#     listaTotal = []
-#     for i in range(0,len(string)):
-#         if string[i]!= ' ' or len(string) != i:
-#             listAux.append(string[i])
-
-#         elif string[i] == ' ' or len(string) == i:
-#             listaTotal.reverse
-
-    
-
 
 
